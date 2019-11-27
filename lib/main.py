@@ -12,7 +12,6 @@ class Contact(BaseModel):
     phone = CharField()
     address = CharField()
 
-
 def setup():
     db.drop_tables([Contact])
     db.create_tables([Contact])
@@ -42,7 +41,7 @@ def show_menu():
         first_name = input("What is the first name of the person you want to add?\n")
         phone_number = input("Phone number?\n")
         address = input("Phone number?\n")
-        new = Contact(name=f"{first_name}", phone=f"{phone_number}", address=f"{address}")
+        new = Contact(name = first_name, phone= phone_number, address = address)
         new.save()
         print("Your new contact is saved")
         show_menu()
