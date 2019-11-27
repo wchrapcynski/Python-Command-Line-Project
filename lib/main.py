@@ -22,39 +22,52 @@ def setup():
     print("Seeding contacts to start with.")
 
 def header():
-    print("\033[1;32;40mName\t\tPhone Number\t\tAddress\033[1;37;40m")
+    print("\n\033[1;32;40mName\t\tPhone Number\t\tAddress\033[1;37;40m")
     
-def show_menu():
-    menu = input("\nPlease choose one of the follow:\n0. Seed Data (deletes previous data)\n1. Show Contact List\n2. Find Contact by First Name\n3. Add a new contact\n4. Exit\n")
-    print("")
-    if menu == "0":
+def menu_switch():
+    menu = input("\nPlease choose one of the follow:\n1. Seed Data (deletes previous data)\n2. Show Contact List\n3. Find Contact by First Name\n4. Add a new contact\n5. Exit\n")
+    if menu.isdigit() == False: 
+        menu = 0
+
+    def Reset():
         setup()
-        show_menu()
-    elif menu == "1":
+    
+    def Show_List():
         header()
         data = Contact.select()
         for contact in data:
             print(f"{contact.name}\t\t{contact.phone}\t\t{contact.address}")
-        show_menu()
-    elif menu == "2":
-        first_name = input("What is the first name of the person you're looking for?\n")
+    
+    def Find_Name():
+        first_name = input("\nWhat is the first name of the person you're looking for?\n")
         header()
         data = Contact.select().where(Contact.name % f"%{first_name}%") # Can search for part of word
         for contact in data:
             print(f"{contact.name}\t\t{contact.phone}\t\t{contact.address}")
-        show_menu()
-    elif menu == "3":
+
+    def Add_New():
         first_name = input("What is the first name of the person you want to add?\n")
         phone_number = input("Phone number?\n")
-        address = input("Phone number?\n")
+        address = input("Address?\n")
         new = Contact(name = first_name, phone= phone_number, address = address)
         new.save()
         print("Your new contact is saved")
-        show_menu()
-    elif menu == "4":
-        quit()
-    else:
-        print("Please enter in a correct menu option.")
-        show_menu()
 
-show_menu()
+    def End():
+        quit()
+    
+    def default():
+        print("\nYou have input an incorrect option")
+
+    dict = {
+        1: Reset,
+        2: Show_List,
+        3: Find_Name,
+        4: Add_New,
+        5: End
+    }
+
+    dict.get(int(menu), default)()
+    menu_switch()
+
+menu_switch()
