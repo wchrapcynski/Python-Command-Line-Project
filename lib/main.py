@@ -45,5 +45,10 @@ def show_menu():
         new.save()
         print("Your new contact is saved")
         show_menu()
+    elif menu == "4":
+        quit()
+    else:
+        print("Please enter in a correct menu option.")
+        show_menu()
 
 show_menu()
