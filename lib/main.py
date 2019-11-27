@@ -18,8 +18,8 @@ def setup():
     db.create_tables([Contact])
     william = Contact(name='William', phone='703-829-5768', address='5311 Manorfield RD, Rockville, MD 20853')
     william.save()
-    test = Contact(name='Test', phone='703-555-1212', address='666 Hell RD, Death Valley, California')
-    test.save()
+    satan = Contact(name='Satan', phone='703-555-1212', address='666 Hell RD, Death Valley, California')
+    satan.save()
     print("Seeding contacts to start with.")
     
 def show_menu():
@@ -30,7 +30,21 @@ def show_menu():
     elif menu == "1":
         data = Contact.select()
         for contact in data:
-            print(contact.name, contact.phone, contact.address)
+            print(f"{contact.name}\t\t{contact.phone}\t\t{contact.address}")
+        show_menu()
+    elif menu == "2":
+        first_name = input("What is the first name of the person you're looking for?\n")
+        data = Contact.select().where(Contact.name % f"%{first_name}%") # Can search for part of word
+        for contact in data:
+            print(f"{contact.name}\t\t{contact.phone}\t\t{contact.address}")
+        show_menu()
+    elif menu == "3":
+        first_name = input("What is the first name of the person you want to add?\n")
+        phone_number = input("Phone number?\n")
+        address = input("Phone number?\n")
+        new = Contact(name=f"{first_name}", phone=f"{phone_number}", address=f"{address}")
+        new.save()
+        print("Your new contact is saved")
         show_menu()
 
 show_menu()
