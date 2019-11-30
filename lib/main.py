@@ -1,4 +1,22 @@
 from peewee import *
+import PySimpleGUI as sg
+
+sg.change_look_and_feel('Dark')
+
+layout = [  [sg.Text('Please choose one of the follow:\n1. Seed Data (deletes previous data)\n2. Show Contact List\n3. Find Contact by First Name\n4. Add a new contact\n5. Exit\n', font=('Helvetica', 18))],
+            [sg.Text('Enter something on Row 2'), sg.InputText()],
+            [sg.Button('Ok'), sg.Button('Cancel')] ]
+
+window = sg.Window('Window Title', layout)
+
+while True:
+    event, values = window.read()
+    if event in (None, 'Cancel'):	# if user closes window or clicks cancel
+        break
+    print('You entered ', values[0])
+
+window.close()
+
 
 db = PostgresqlDatabase('contacts', user='postgres', password='', host='localhost', port=5432)
 db.connect()
