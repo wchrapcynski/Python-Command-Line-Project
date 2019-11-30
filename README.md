@@ -8,14 +8,13 @@ This is a small program written in Python to be used as a sort of address book f
 
 - [Postgres](https://www.postgresql.org/)
 - [Python3](https://www.python.org/)
+- [Pipenv](https://pypi.org/project/pipenv/)
 
 ## Installation
 
 After downloading this repo, you'll need to install dependencies using the following commands from the `lib` directory:
 
-`pipenv install` if you're using a virtual environment.
-
-`pip3 install` if you're not using a virtual enviromnent.
+`pipenv install`
 
 Next you will need to initialize the database. The easiest way to do this is via the command line with the follow:
 
@@ -25,11 +24,9 @@ If you use a diferent database name, you'll need to adjust the code to match it.
 
 ## Usage
 
-To run the program, you'll need to use the following commands depending on your setup from the `lib` directory.
+To run the program, you'll need to use the following command in the `lib` directory.
 
 `pipenv run python main.py` 
-
-`python3 main.py`
 
 There are currently five menu items:
 
