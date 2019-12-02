@@ -25,7 +25,7 @@ def header():
     print("\n\033[1;32;40mName\t\tPhone Number\t\tAddress\033[1;37;40m")
     
 def menu_switch():
-    menu = input("\nPlease choose one of the follow:\n1. Seed Data (deletes previous data)\n2. Show Contact List\n3. Find Contact by First Name\n4. Add a new contact\n5. Exit\n")
+    menu = input("\nPlease choose one of the follow:\n1. Show Contact List\n2. Find Contact by First Name\n3. Add a new contact\n4. Exit\n5. Seed Data (deletes previous data)\n")
     if menu.isdigit() == False: 
         menu = 0
 
@@ -60,11 +60,11 @@ def menu_switch():
         print("\nYou have input an incorrect option")
 
     dict = {
-        1: Reset,
-        2: Show_List,
-        3: Find_Name,
-        4: Add_New,
-        5: End
+        1: Show_List,
+        2: Find_Name,
+        3: Add_New,
+        4: End,
+        5: Reset
     }
 
     dict.get(int(menu), default)()

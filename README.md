@@ -32,7 +32,7 @@ There are currently five menu items:
 
 ![Sample](images/sample.png)
 
-If you'd like to add a couple of entries into the database, you can select option 1. This option will also clear out any previous data. You can remove this option if you don't need it. The other options are self explanitory.
+If you'd like to add a couple of entries into the database, you can select option 5. This option will also clear out any previous data. You can remove this option if you don't need it. The other options are self explanitory.
 
 ## Future updates
 
