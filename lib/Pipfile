@@ -10,6 +10,8 @@ peewee = "*"
 psycopg2-binary = "*"
 autopep8 = "*"
 pysimplegui = "*"
+tk = "*"
+tkinter = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.7.5"
