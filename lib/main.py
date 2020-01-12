@@ -17,7 +17,7 @@ def setup():
     db.create_tables([Contact])
     william = Contact(name='William', phone='703-829-5768', address='5311 Manorfield RD, Rockville, MD 20853')
     william.save()
-    satan = Contact(name='Satan', phone='703-555-1212', address='666 Hell RD, Death Valley, California')
+    satan = Contact(name='John', phone='703-555-1212', address='555 Pike RD, Red Oak, California')
     satan.save()
     print("Seeding contacts to start with.")
 
